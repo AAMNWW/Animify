@@ -1,0 +1,90 @@
+.cta-section { padding: 0 0 96px; }
+
+.cta-box {
+  background: linear-gradient(160deg, #0C0920 0%, #080616 100%);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 20px;
+  padding: 80px 48px;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+
+/* Figma: radial purple glow top-center */
+.cta-glow {
+  position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 700px; height: 280px;
+  background: radial-gradient(ellipse at top, rgba(90,50,200,0.28) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+/* Figma: subtle grid lines */
+.cta-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(74,158,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74,158,255,0.03) 1px, transparent 1px);
+  background-size: 64px 64px;
+  pointer-events: none;
+}
+
+.cta-title {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 52px; font-weight: 700;
+  letter-spacing: -0.032em; color: #fff;
+  margin-bottom: 12px; position: relative; z-index: 1;
+}
+
+.cta-sub {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 15px; font-weight: 400;
+  color: rgba(255,255,255,0.48);
+  max-width: 360px; margin: 0 auto 32px;
+  line-height: 1.7; position: relative; z-index: 1;
+  letter-spacing: -0.01em;
+}
+
+.cta-btns {
+  display: flex; align-items: center; justify-content: center;
+  gap: 12px; position: relative; z-index: 1;
+}
+
+/* Figma: #03263D bg, 0.6px border #E0F2FF 40%, inner shadow blur:10 #0099FF, padding 12px 20px bottom:12px left:20px gap:10px */
+.cta-btn-primary {
+  padding: 12px 20px;
+  background: #03263D;
+  color: #fff;
+  font-family: 'Satoshi', sans-serif;
+  font-size: 14px; font-weight: 600;
+  border-radius: 100px;
+  text-decoration: none;
+  border: 0.6px solid rgba(224, 242, 255, 0.4);
+  box-shadow: inset 0 0 10px 0 rgba(0, 153, 255, 0.6),
+              0 0 18px 0 rgba(0, 153, 255, 0.22);
+  transition: box-shadow 0.2s;
+  letter-spacing: -0.01em;
+}
+.cta-btn-primary:hover {
+  box-shadow: inset 0 0 16px 0 rgba(0, 153, 255, 0.8),
+              0 0 28px 0 rgba(0, 153, 255, 0.38);
+}
+
+.cta-btn-secondary {
+  padding: 12px 20px;
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.8);
+  font-family: 'Satoshi', sans-serif;
+  font-size: 14px; font-weight: 500;
+  border-radius: 100px;
+  text-decoration: none;
+  border: 0.6px solid rgba(224, 242, 255, 0.25);
+  transition: background 0.2s, border-color 0.2s;
+  letter-spacing: -0.01em;
+}
+.cta-btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: rgba(224,242,255,0.45); }
+
+@media (max-width: 600px) {
+  .cta-box { padding: 52px 24px; }
+  .cta-title { font-size: 32px; }
+  .cta-btns { flex-direction: column; align-items: stretch; }
+  .cta-btns a { text-align: center; }
+}

@@ -1,0 +1,118 @@
+.footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 56px 80px 36px;
+}
+
+.footer-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 2.4fr 1fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 44px;
+}
+
+/* Brand */
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 14px;
+}
+
+.footer-logo-text {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.footer-addr {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.38);
+  line-height: 1.85;
+  margin-bottom: 6px;
+  letter-spacing: -0.005em;
+}
+
+.footer-contact {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.38);
+  margin-bottom: 3px;
+  letter-spacing: -0.005em;
+}
+
+/* Link columns */
+.footer-col-title {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 18px;
+  letter-spacing: -0.01em;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.footer-links a {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 13.5px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.42);
+  text-decoration: none;
+  letter-spacing: -0.005em;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: #ffffff; }
+
+/* Bottom bar */
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  font-family: 'Satoshi', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.32);
+  letter-spacing: -0.005em;
+}
+
+.footer-bottom-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-bottom-links a {
+  color: rgba(255, 255, 255, 0.32);
+  text-decoration: none;
+  transition: color 0.2s;
+  font-family: 'Satoshi', sans-serif;
+  font-size: 13px;
+}
+.footer-bottom-links a:hover { color: #ffffff; }
+
+@media (max-width: 960px) {
+  .footer { padding: 40px 28px 28px; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .footer-brand-col { grid-column: 1 / -1; }
+}
+
+@media (max-width: 480px) {
+  .footer-top { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+}

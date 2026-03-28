@@ -1,0 +1,47 @@
+/* Figma: border 0.8px linear gradient #6B49FF 20% → #6B49FF, inner shadow Y:-4 blur:12 #6B49FF 60%, drop shadow Y:16 blur:32 #000 20% */
+.clients {
+  padding: 44px 80px;
+  text-align: center;
+  position: relative;
+  border-top: 0.8px solid transparent;
+  border-bottom: 0.8px solid transparent;
+  background:
+    linear-gradient(#000, #000) padding-box,
+    linear-gradient(90deg, rgba(107,73,255,0.2) 0%, rgba(107,73,255,0.55) 50%, rgba(107,73,255,0.2) 100%) border-box;
+  /* inner shadow top approximated with box-shadow inset */
+  box-shadow:
+    inset 0 -4px 12px 0 rgba(107,73,255,0.22),
+    0 16px 32px 0 rgba(0,0,0,0.2);
+}
+
+.clients-label {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.38);
+  margin-bottom: 28px;
+  letter-spacing: -0.01em;
+}
+
+.clients-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 52px;
+  flex-wrap: wrap;
+}
+
+.client-logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  opacity: 0.55;
+  transition: opacity 0.25s;
+  cursor: default;
+}
+.client-logo:hover { opacity: 0.85; }
+
+@media (max-width: 768px) {
+  .clients { padding: 36px 28px; }
+  .clients-row { gap: 28px; }
+}

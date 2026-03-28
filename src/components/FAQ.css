@@ -1,0 +1,159 @@
+/* ════════════════════════════════════════════
+   FAQ  — exact Figma screenshot
+   Width: 748px  |  Each row height: 72px
+   Background: radial gradient #10141A #0C1018 #0A1017
+   Border: 1px all sides, radial gradient #687283 → #687283 50%
+════════════════════════════════════════════ */
+
+.faq-section {
+  padding: 96px 0 80px;
+}
+
+.faq-inner {
+  max-width: 748px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Title: "Frequently Asked Questions"
+   Figma: large weight 700, two colors */
+.faq-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.faq-title {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: -0.032em;
+  line-height: 1.1;
+  color: #ffffff;
+}
+
+/* The word "Asked Questions" is slightly dimmer */
+.faq-title-dim {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* ── List: column of cards, gap between them ── */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ── Each FAQ card ──
+   Figma: radius 12px, border 1px, background radial gradient,
+   border uses a radial gradient overlay trick */
+.faq-item {
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  /* radial gradient background: #10141A center → #0C1018 → #0A1017 edge */
+  background: radial-gradient(
+    ellipse at 50% 50%,
+    #10141A 0%,
+    #0C1018 55%,
+    #0A1017 100%
+  );
+  /* border using box-shadow to simulate gradient border */
+  box-shadow:
+    0 0 0 1px #687283,
+    inset 0 0 0 0px transparent;
+  transition: box-shadow 0.25s;
+}
+
+/* Hover: border brightens */
+.faq-item:hover {
+  box-shadow: 0 0 0 1px rgba(104, 114, 131, 0.85);
+}
+
+/* Open state: brighter border */
+.faq-item.open {
+  box-shadow: 0 0 0 1px rgba(104, 114, 131, 1);
+}
+
+/* ── Question button ──
+   Figma: height ~72px for closed state, padding 0 24px */
+.faq-q {
+  width: 100%;
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s;
+}
+.faq-q:hover { background: rgba(255,255,255,0.02); }
+
+.faq-q-text {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+}
+
+/* ── Plus/minus icon circle ──
+   Figma: circle with + icon, right side */
+.faq-plus {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: border-color 0.25s, background 0.25s;
+}
+.faq-item:hover .faq-plus {
+  border-color: rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.04);
+}
+.faq-item.open .faq-plus {
+  border-color: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.06);
+}
+
+/* ── Answer (collapsed by default) ── */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s;
+}
+
+.faq-item.open .faq-answer {
+  max-height: 300px;
+  padding-bottom: 24px;
+}
+
+.faq-answer p {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.52);
+  line-height: 1.75;
+  letter-spacing: -0.005em;
+  padding: 0 24px;
+}
+
+/* Separator line between question and answer */
+.faq-item.open .faq-q {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .faq-title { font-size: 30px; }
+  .faq-q-text { font-size: 14px; }
+  .faq-q { min-height: 60px; padding: 0 18px; }
+  .faq-answer p { padding: 0 18px; }
+}

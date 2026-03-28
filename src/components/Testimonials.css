@@ -1,0 +1,250 @@
+/* ════════════════════════════════════════════
+   TESTIMONIALS — exact Figma screenshot 1
+   Colors from panel: #0F0C18 #0D0A17 #110828
+   Linear gradient borders #3F325F → 0%
+   Card bg: Linear Gradient + #0F0C18 #0D0A17
+════════════════════════════════════════════ */
+
+.testi-section {
+  padding: 0 0 80px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ══ HEART / ARCH HEADER ══
+   Figma: large heart shape sitting above the title.
+   Rendered as a CSS heart using two circles + square. */
+.testi-header {
+  position: relative;
+  text-align: center;
+  padding: 0 0 52px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Heart shape behind the title */
+.testi-heart {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 380px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* CSS heart using clip-path */
+.heart-bg {
+  position: absolute;
+  inset: 0;
+  /* heart shape via radial gradients for the two top lobes */
+  background:
+    radial-gradient(circle at 30% 35%, rgba(80, 60, 140, 0.45) 0%, transparent 50%),
+    radial-gradient(circle at 70% 35%, rgba(80, 60, 140, 0.45) 0%, transparent 50%),
+    radial-gradient(circle at 50% 75%, rgba(60, 45, 110, 0.25) 0%, transparent 55%);
+  /* clip to heart shape */
+  clip-path: path('M200 360 C200 360 10 220 10 120 C10 60 60 20 120 20 C155 20 185 40 200 65 C215 40 245 20 280 20 C340 20 390 60 390 120 C390 220 200 360 200 360Z');
+}
+
+/* Outline border of heart */
+.heart-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  clip-path: path('M200 360 C200 360 10 220 10 120 C10 60 60 20 120 20 C155 20 185 40 200 65 C215 40 245 20 280 20 C340 20 390 60 390 120 C390 220 200 360 200 360Z');
+  background: transparent;
+  border: 1px solid rgba(109, 86, 184, 0.35);
+}
+
+.testi-header-text {
+  position: relative;
+  z-index: 1;
+  margin-top: 60px;
+}
+
+/* "Our Customers" — Figma: white, large */
+.testi-title {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.testi-sub {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.42);
+  letter-spacing: -0.005em;
+}
+
+/* ══ ROWS WRAPPER ══ */
+.testi-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  /* no horizontal padding — rows bleed to edges */
+}
+
+/* ══ EACH ROW ══
+   Row 1: ghost(240px) | card | card | card | ghost(240px)
+   Row 2: ghost(240px) | card | card | ghost | ghost
+   Uses negative margin to bleed beyond container */
+.testi-row {
+  display: flex;
+  gap: 12px;
+  padding: 0 0;
+  /* shift rows slightly like Figma — row 2 is offset right */
+}
+
+.testi-row-1 {
+  padding-left: 0;
+  transform: translateX(0);
+}
+
+/* Row 2 is shifted to the right relative to row 1, as in Figma */
+.testi-row-2 {
+  transform: translateX(60px);
+}
+
+/* ══ GHOST WRAPPERS ══
+   Clipped partial cards on edges */
+.t-ghost-wrap {
+  flex-shrink: 0;
+  width: 248px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Fade out ghost cards with gradient mask */
+.t-ghost-left {
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 60%);
+  mask-image: linear-gradient(to right, transparent 0%, black 60%);
+}
+.t-ghost-right {
+  -webkit-mask-image: linear-gradient(to left, transparent 0%, black 60%);
+  mask-image: linear-gradient(to left, transparent 0%, black 60%);
+}
+.t-ghost-right2 {
+  width: 200px;
+  -webkit-mask-image: linear-gradient(to left, transparent 0%, black 50%);
+  mask-image: linear-gradient(to left, transparent 0%, black 50%);
+}
+
+/* ══ CARD ══
+   Figma: background linear gradient (#0F0C18 → #0D0A17)
+   Border: 1px solid rgba from #3F325F
+   Size: 480 × 183 (main cards) */
+.t-card {
+  /* Figma card background */
+  background: linear-gradient(160deg, #0F0C18 0%, #0D0A17 100%);
+  /* Figma border */
+  border: 1px solid rgba(63, 50, 95, 0.6);
+  border-radius: 14px;
+  padding: 20px;
+  flex: 1;
+  min-width: 0;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.t-card:hover {
+  border-color: rgba(63, 50, 95, 0.9);
+  transform: translateY(-2px);
+}
+
+/* Ghost card — same style but pointer-events off */
+.t-card-ghost {
+  pointer-events: none;
+  border-color: rgba(63, 50, 95, 0.35);
+}
+
+/* ── Avatar ── */
+.t-card-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.t-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.t-avatar img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.t-avatar-fb {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Name / Role ── */
+.t-name {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  margin-bottom: 2px;
+}
+
+.t-role {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 11.5px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.38);
+  letter-spacing: -0.005em;
+}
+
+/* ── Review text ── */
+.t-text {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.7;
+  letter-spacing: -0.005em;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+  .testi-row-2 { transform: translateX(20px); }
+  .t-ghost-wrap { width: 180px; }
+}
+
+@media (max-width: 768px) {
+  .testi-row {
+    flex-wrap: wrap;
+    padding: 0 16px;
+  }
+  .testi-row-1, .testi-row-2 { transform: none; }
+  .t-ghost-wrap { display: none; }
+  .t-card { min-width: calc(50% - 6px); flex: 0 0 calc(50% - 6px); }
+  .testi-title { font-size: 28px; }
+}
+
+@media (max-width: 480px) {
+  .t-card { min-width: 100%; flex: 0 0 100%; }
+}

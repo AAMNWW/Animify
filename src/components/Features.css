@@ -1,0 +1,408 @@
+/* ═══════════════════════════════════════════
+   FEATURES SECTION  — exact Figma layout
+═══════════════════════════════════════════ */
+.features-section {
+  padding: 120px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ─── HEADER ─── */
+.features-header {
+  width: 600px;
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.feat-sec-title {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin-bottom: 14px;
+}
+.feat-dim { color: rgba(255,255,255,0.4); }
+
+.feat-sec-sub {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.7;
+  letter-spacing: -0.01em;
+}
+
+/* ─── ROW SYSTEM ─── */
+.features-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+  justify-content: center;
+}
+
+.row-top    { width: 1100px; }
+.row-bottom { width: 1100px; }
+
+/* Exact Figma pixel widths + heights */
+.card-1 { width: 600px; min-height: 400px; }
+.card-2 { width: 480px; min-height: 400px; }
+.card-3 { width: 540px; min-height: 440px; }
+.card-4 { width: 540px; min-height: 440px; }
+
+/* ─── BASE CARD ─── */
+.feat-card {
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(160deg, #0D0B22 0%, #09071A 100%);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.3s;
+  cursor: pointer;
+  position: relative;
+}
+.feat-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(74,158,255,0.3), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.feat-card:hover { border-color: rgba(74,158,255,0.25); transform: translateY(-3px); }
+.feat-card:hover::before { opacity: 1; }
+
+/* ─── TEXT CONTENT ─── */
+.feat-content {
+  padding: 24px 24px 0;
+}
+.feat-content-bottom {
+  padding: 0 24px 24px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  padding-top: 20px;
+}
+
+.feat-content h3 {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.feat-content p {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.52);
+  line-height: 1.65;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+.feat-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'Satoshi', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #4A9EFF;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: gap 0.2s;
+  margin-bottom: 4px;
+}
+.feat-link:hover { gap: 8px; }
+
+/* ─── VISUAL AREA (fills remaining space) ─── */
+.feat-visual-area {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* ══════════════════════════════════════
+   CARD 1 — UI VISUAL BACKGROUND + CONTENT
+   Background: #06041A, full-height panel
+══════════════════════════════════════ */
+.ui-area { background: #06041A; }
+
+.ui-visual {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+/* topbar */
+.uiv-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.uiv-tabs { display: flex; gap: 2px; }
+.uiv-tab {
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-family: 'Satoshi', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.3);
+  cursor: pointer;
+}
+.uiv-tab-active { background: rgba(74,158,255,0.14); color: #4A9EFF; }
+.uiv-tools { margin-left: auto; display: flex; gap: 3px; }
+.uiv-tool {
+  width: 18px; height: 18px;
+  border-radius: 3px;
+  font-size: 9px;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  cursor: pointer;
+}
+.uiv-tool-on { background: rgba(74,158,255,0.15); border-color: rgba(74,158,255,0.3); color: #4A9EFF; }
+
+/* body */
+.uiv-body {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 112px 1fr;
+  gap: 8px;
+}
+
+/* layers panel */
+.uiv-layers {
+  background: rgba(255,255,255,0.025);
+  border-radius: 6px;
+  padding: 8px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+.uiv-ltabs { display: flex; gap: 8px; margin-bottom: 8px; }
+.uiv-ltab {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 9.5px; font-weight: 500;
+  color: rgba(255,255,255,0.28);
+  cursor: pointer;
+}
+.uiv-ltab-on { color: #4A9EFF; }
+
+.uiv-layer {
+  display: flex; align-items: center; gap: 5px;
+  padding: 4px 5px;
+  border-radius: 4px;
+  font-family: 'Satoshi', sans-serif;
+  font-size: 10px;
+  color: rgba(255,255,255,0.4);
+  cursor: pointer;
+  margin-bottom: 1px;
+}
+.uiv-layer-sel { background: rgba(74,158,255,0.12); color: #4A9EFF; }
+.uiv-expand { margin-left: auto; font-size: 9px; opacity: 0.5; }
+
+/* props */
+.uiv-props {
+  background: rgba(255,255,255,0.025);
+  border-radius: 6px;
+  padding: 8px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+.uiv-section {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 9.5px; font-weight: 600;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 5px;
+}
+.uiv-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.uiv-prop {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 2.5px 3px;
+}
+.uiv-pk { font-family: 'Satoshi', sans-serif; font-size: 9px; color: rgba(255,255,255,0.28); }
+.uiv-pv { font-family: 'Satoshi', sans-serif; font-size: 9px; color: rgba(255,255,255,0.52); }
+.uiv-div { height: 1px; background: rgba(255,255,255,0.05); margin: 6px 0; }
+.uiv-opacity-row { display: flex; align-items: center; gap: 6px; }
+.uiv-opacity-bar {
+  flex: 1; height: 3px; border-radius: 2px;
+  background: linear-gradient(90deg, #4A9EFF 0%, rgba(74,158,255,0.15) 100%);
+}
+
+/* ══════════════════════════════════════
+   CARD 2 — COLLABORATION VISUAL
+   Background: radial purple gradient from Figma
+══════════════════════════════════════ */
+.collab-area {
+  background: radial-gradient(
+    ellipse at 50% 55%,
+    #3B2B8A 0%,
+    #1C1442 35%,
+    #0C0A20 65%,
+    #070516 100%
+  );
+  min-height: 220px;
+}
+
+.collab-visual {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  padding: 16px;
+}
+.collab-svg { width: 100%; max-width: 440px; height: 100%; max-height: 260px; }
+
+/* ══════════════════════════════════════
+   CARD 3 — CLOUD STORAGE VISUAL
+   Exact Figma colours: #08152B #10141A #0D1014 
+   with radial #3B6BBF → #132B57
+══════════════════════════════════════ */
+.cloud-area {
+  background: linear-gradient(180deg,
+    #08152B 0%,
+    #10141A 50%,
+    #0D1014 100%
+  );
+  min-height: 260px;
+  border-top: none;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.cloud-visual {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.cloud-scene {
+  position: relative;
+  width: 200px; height: 200px;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.cv-ring {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px solid rgba(74,120,200,0.2);
+}
+.cv-ring-lg { width: 200px; height: 200px; }
+.cv-ring-md { width: 154px; height: 154px; border-color: rgba(74,120,200,0.14); }
+
+.cv-orb {
+  position: absolute;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: rgba(8,14,28,0.92);
+  border: 1px solid rgba(255,255,255,0.12);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 3;
+}
+.cv-orb-top   { top: 2px;    left: 50%; transform: translateX(-50%); }
+.cv-orb-left  { left: 8px;   bottom: 28px; }
+.cv-orb-right { right: 8px;  bottom: 28px; }
+
+.cv-sphere {
+  width: 96px; height: 96px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 30%, #9B8AFF, #5B40D0 45%, #2D1B8A 70%, #1A0E60);
+  box-shadow: 0 0 48px rgba(109,86,184,0.55);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; z-index: 2;
+  animation: cloudFloat 4s ease-in-out infinite;
+}
+@keyframes cloudFloat {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+
+/* ══════════════════════════════════════
+   CARD 4 — INTEGRATIONS VISUAL
+   Exact Figma background: radial #10141A #08152B #0A1017
+══════════════════════════════════════ */
+.int-area {
+  background: radial-gradient(
+    43.69% 75.71% at 50% 44.52%,
+    #10141A 0%,
+    #08152B 50%,
+    #0A1017 100%
+  );
+  min-height: 260px;
+  border-top: none;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.int-visual {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  gap: 12px;
+  padding: 24px;
+}
+
+.int-icon {
+  width: 76px; height: 76px;
+  border-radius: 22px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid rgba(255,255,255,0.09);
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+.int-icon:hover { transform: scale(1.07); }
+
+.int-dropbox {
+  background: linear-gradient(160deg, #003DA5 0%, #0054EB 100%);
+  border-color: rgba(0,97,255,0.3);
+  box-shadow: 0 8px 28px rgba(0,97,255,0.22);
+}
+
+.int-animify {
+  background: linear-gradient(160deg, #6D56B8 0%, #3E3261 100%);
+  border-color: rgba(109,86,184,0.5);
+  box-shadow: 0 8px 32px rgba(109,86,184,0.38);
+}
+
+.int-slack {
+  background: linear-gradient(160deg, #1A0A1A 0%, #280A28 100%);
+  border-color: rgba(224,30,90,0.2);
+}
+
+.int-dot-arrow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+.int-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  display: block;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1160px) {
+  .row-top, .row-bottom { width: 92vw; }
+  .card-1, .card-2, .card-3, .card-4 { width: 100%; }
+  .features-row { flex-direction: column; align-items: center; }
+  .card-1 { max-width: 600px; }
+  .card-2 { max-width: 600px; }
+  .card-3, .card-4 { max-width: 600px; }
+}
+
+@media (max-width: 640px) {
+  .features-section { padding: 72px 0; }
+  .features-header { width: 90%; }
+  .feat-sec-title { font-size: 30px; }
+  .features-row { gap: 12px; }
+  .row-top, .row-bottom { width: 92%; }
+}
