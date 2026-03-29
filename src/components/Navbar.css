@@ -1,3 +1,4 @@
+/* ─── Navbar wrapper ─────────────────────────────────────── */
 .navbar {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -5,37 +6,53 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 14px 24px;
+  padding: 32px 24px 0;          /* top: 32px as per Figma */
 }
 
-/* Figma: radial glow behind navbar — #0059FF 37% opacity, centered */
+/* Radial blue glow behind navbar */
 .navbar::before {
   content: '';
   position: absolute;
   top: -60px; left: 50%; transform: translateX(-50%);
   width: 900px; height: 300px;
-  background: radial-gradient(ellipse at 50% 30%, rgba(0,89,255,0.28) 0%, rgba(1,1,1,0.18) 45%, transparent 70%);
+  background: radial-gradient(
+    ellipse at 50% 30%,
+    rgba(0, 89, 255, 0.28) 0%,
+    rgba(1, 1, 1, 0.18) 45%,
+    transparent 70%
+  );
   pointer-events: none;
   z-index: 0;
 }
 
-/* Figma: 688×63, border 0.8px #FFFFFF 12%, radius 200px, padding top/bottom 14px left/right 32px, gap 40px, bg linear #171D2D → #040B1D */
+/* ─── Inner pill ─────────────────────────────────────────── */
+/* Figma: 688×63, radius 200px, border 0.8px #FFFFFF1F       */
+/* padding 14px 32px, gap 40px                               */
+/* bg: linear-gradient(180deg, rgba(23,29,45,.5), rgba(4,11,29,.5)) */
 .navbar-inner {
   position: relative; z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  max-width: 860px;
-  background: linear-gradient(160deg, #171D2D 0%, #040B1D 100%);
+  max-width: 688px;
+  height: 63px;
+  background: linear-gradient(
+    180deg,
+    rgba(23, 29, 45, 0.5) 0%,
+    rgba(4, 11, 29, 0.5) 100%
+  );
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: 200px;
-  border: 0.8px solid rgba(255, 255, 255, 0.12);
-  padding: 14px 14px 14px 32px;
+  /* Figma: 0.8px solid #FFFFFF1F */
+  border: 0.8px solid rgba(255, 255, 255, 0.122);
+  padding: 14px 32px;
   gap: 40px;
+  box-sizing: border-box;
 }
 
+/* ─── Logo ───────────────────────────────────────────────── */
 .nav-logo {
   display: flex;
   align-items: center;
@@ -52,51 +69,81 @@
   letter-spacing: -0.02em;
 }
 
+/* ─── Nav links ──────────────────────────────────────────── */
+/* Figma: Satoshi Medium 14px, #FFFFFF, line-height 100%     */
 .nav-links {
   display: flex;
   align-items: center;
   gap: 32px;
   list-style: none;
+  margin: 0;
+  padding: 0;
   flex: 1;
   justify-content: center;
 }
 
-/* Figma: nav links white, same as figma */
 .nav-links a {
   font-family: 'Satoshi', sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
-  color: rgba(255,255,255,0.75);
+  line-height: 1;
+  letter-spacing: 0%;
+  color: #ffffff;
   text-decoration: none;
-  letter-spacing: -0.01em;
-  transition: color 0.2s;
+  transition: opacity 0.2s;
 }
-.nav-links a:hover { color: #fff; }
 
-/* Figma: Try it now — #03263D bg, linear gradient #00AEFF→#1778FF, 0.6px border, inner shadow blur:8 #0099FF */
+.nav-links a:hover {
+  opacity: 0.7;
+}
+
+/* ─── CTA button ─────────────────────────────────────────── */
+/* Figma: 88×35, radius 10px, border 0.6px #E0F2FF66         */
+/* padding 8px 12px, bg #03263D                              */
+/* box-shadow: 0 0 8px 0 #0099FF inset                       */
 .nav-cta {
-  padding: 10px 22px;
-  background: linear-gradient(135deg, rgba(0,174,255,0.15) 0%, rgba(23,120,255,0.15) 100%), #03263D;
-  color: #fff;
-  font-family: 'Satoshi', sans-serif;
-  font-size: 15px;
-  font-weight: 600;
-  border-radius: 100px;
-  text-decoration: none;
-  letter-spacing: -0.01em;
-  border: 0.8px solid rgba(0,174,255,0.55);
-  box-shadow: inset 0 0 10px 0 rgba(0,153,255,0.5),
-              0 0 14px 0 rgba(0,153,255,0.15);
-  transition: box-shadow 0.2s;
-  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 88px;
+  height: 35px;
+  padding: 8px 12px;
+  box-sizing: border-box;
   flex-shrink: 0;
-}
-.nav-cta:hover {
-  box-shadow: inset 0 0 16px 0 rgba(0,153,255,0.75),
-              0 0 24px 0 rgba(0,153,255,0.3);
+
+  background: #03263D;
+  color: #ffffff;
+  font-family: 'Satoshi', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0%;
+  text-decoration: none;
+  white-space: nowrap;
+
+  border-radius: 10px;
+  /* Figma: 0.6px solid #E0F2FF66 */
+  border: 0.6px solid rgba(224, 242, 255, 0.4);
+  /* Figma: inset glow #0099FF */
+  box-shadow: 0px 0px 8px 0px #0099FF inset;
+
+  transition: box-shadow 0.2s, background 0.2s;
 }
 
+.nav-cta:hover {
+  box-shadow: 0px 0px 14px 0px #0099FF inset,
+              0px 0px 18px 0px rgba(0, 153, 255, 0.25);
+  background: #04304d;
+}
+
+/* ─── Mobile ─────────────────────────────────────────────── */
 @media (max-width: 768px) {
-  .nav-links { display: none; }
-  .navbar-inner { max-width: 100%; padding: 12px 12px 12px 20px; }
+  .nav-links {
+    display: none;
+  }
+  .navbar-inner {
+    max-width: 100%;
+    padding: 12px 16px 12px 20px;
+    height: auto;
+  }
 }
