@@ -10,11 +10,10 @@ body {
 }
 
 :root {
-  --blue: #4A9EFF;
-  --blue-glow: rgba(0, 153, 255, 0.55);
+  --blue: #00AEFF;
+  --blue2: #1778FF;
   --purple: #6D56B8;
-  --border: rgba(255,255,255,0.08);
-  --text-dim: #9CA3AF;
+  --text-dim: #BEBEBE;
   --radius: 16px;
 }
 
@@ -26,63 +25,61 @@ body {
 @media (max-width: 960px) { .container { padding: 0 28px; } }
 @media (max-width: 600px) { .container { padding: 0 16px; } }
 
-/* Scroll reveal */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
-/* Shared button classes (used by CTA, Pricing) */
+/* Shared Pricing buttons */
 .btn-white {
   display: inline-flex; align-items: center; justify-content: center;
-  padding: 13px 24px; width: 100%;
+  padding: 12px 16px; width: 100%;
   background: #fff; border: none; color: #000;
   font-family: 'Satoshi', sans-serif; font-size: 14px; font-weight: 700;
   border-radius: 10px; cursor: pointer;
-  transition: opacity 0.2s;
-  letter-spacing: -0.01em;
+  transition: opacity 0.2s; letter-spacing: -0.01em;
 }
 .btn-white:hover { opacity: 0.9; }
 
 .btn-outline {
   display: inline-flex; align-items: center; justify-content: center;
-  padding: 13px 24px; width: 100%;
+  padding: 12px 16px; width: 100%;
   background: transparent; color: #fff;
   font-family: 'Satoshi', sans-serif; font-size: 14px; font-weight: 600;
   border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.18);
   cursor: pointer;
-  transition: border-color 0.2s, background 0.2s;
-  letter-spacing: -0.01em;
+  transition: border-color 0.2s, background 0.2s; letter-spacing: -0.01em;
 }
 .btn-outline:hover { border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.04); }
 
-/* Amazing badge — Figma: #6B49FF bg inner shadow Y:-4 blur:12 #6B49FF 60%, drop Y:16 blur:32 #000 20%, border 0.8px linear gradient */
+/* Amazing / section badge */
 .sec-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+  display: inline-flex; align-items: center; gap: 6px;
   padding: 5px 14px;
-  background: rgba(107, 73, 255, 0.18);
+  background: rgba(107,73,255,0.18);
   border-radius: 100px;
-  font-size: 12px;
-  font-weight: 600;
-  color: #C4ADFF;
-  letter-spacing: 0.04em;
-  margin-bottom: 16px;
+  font-size: 12px; font-weight: 600;
+  color: #C4ADFF; letter-spacing: 0.04em; margin-bottom: 16px;
   border: 0.8px solid rgba(107,73,255,0.5);
-  box-shadow:
-    inset 0 -4px 12px 0 rgba(107,73,255,0.35),
-    0 16px 32px 0 rgba(0,0,0,0.2);
+  box-shadow: inset 0 -4px 12px 0 rgba(107,73,255,0.35), 0 8px 24px 0 rgba(0,0,0,0.2);
 }
 
+/* Section title with gradient option */
 .sec-title {
   font-family: 'Satoshi', sans-serif;
   font-size: 48px; font-weight: 700;
-  letter-spacing: -0.03em; line-height: 1.1;
-  margin-bottom: 14px;
+  letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 14px;
 }
-.sec-title .dim { color: rgba(255,255,255,0.4); }
+/* Use gradient-text class to get white→#BEBEBE effect instead of flat gray */
+.sec-title .dim {
+  background: linear-gradient(90deg, #ffffff 0%, #BEBEBE 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* #BEBEBE for body text where needed */
 .sec-sub {
   font-family: 'Satoshi', sans-serif;
   font-size: 15px; font-weight: 400;
-  color: #9CA3AF; line-height: 1.7;
+  color: #BEBEBE; line-height: 1.7;
 }
