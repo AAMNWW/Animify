@@ -1,34 +1,41 @@
-.pricing-section { padding: 96px 0; }
+.pricing-section { padding: 80px 0 96px; }
+
+/* Figma: narrow centered radial glow above title, NOT full width */
+.pricing-top-glow {
+  width: 100%; height: 140px; position: relative; margin-bottom: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.pricing-top-glow::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 360px; height: 200px;
+  background: radial-gradient(ellipse at 50% 100%, rgba(80,40,220,0.5) 0%, rgba(40,20,120,0.2) 45%, transparent 70%);
+}
 
 .pricing-title {
   font-family: 'Satoshi', sans-serif;
   font-size: 52px; font-weight: 700;
-  letter-spacing: -0.032em;
-  text-align: center; color: #fff;
-  margin-bottom: 48px;
+  letter-spacing: -0.032em; text-align: center; color: #fff;
+  margin-bottom: 48px; position: relative; z-index: 1;
 }
-.pricing-title .dim { color: rgba(255,255,255,0.38); }
-
-/* Top glow above pricing — Figma: radial purple glow */
-.pricing-glow {
-  width: 100%;
-  height: 180px;
-  background: radial-gradient(ellipse at 50% 100%, rgba(90,50,200,0.35) 0%, transparent 70%);
-  margin-bottom: -40px;
-  pointer-events: none;
+/* "plans" uses gradient not flat gray */
+.pricing-title .dim {
+  background: linear-gradient(90deg, #ffffff 0%, #BEBEBE 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
 }
 
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  align-items: start;
+  gap: 16px; align-items: start;
 }
 
-/* Figma: radius 16px, border 1px */
+/* Base card */
 .price-card {
   border-radius: 16px;
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.1);
   padding: 28px;
   display: flex; flex-direction: column;
   transition: transform 0.3s, border-color 0.3s;
@@ -36,19 +43,32 @@
 }
 .price-card:hover { transform: translateY(-4px); }
 
-.price-card.starter  { background: linear-gradient(160deg, #0D0A20 0%, #09071C 100%); }
+/* Figma Starter & Enterprise: radial gradient #10141A #0C121C #0A1017, border top 2.4px linear #192235 #0059FF #6FADFF #0059FF #192235 */
+.price-card.starter,
+.price-card.enterprise {
+  background: radial-gradient(ellipse at 50% 0%, #10141A 0%, #0C121C 50%, #0A1017 100%);
+}
+
+/* Top glowing border for starter & enterprise — Figma: 2.4px top border linear gradient */
+.price-card.starter::before,
+.price-card.enterprise::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2.4px;
+  background: linear-gradient(90deg, #192235 0%, #0059FF 25%, #6FADFF 50%, #0059FF 75%, #192235 100%);
+  border-radius: 16px 16px 0 0;
+}
+
+/* Pro card */
 .price-card.pro {
   background: linear-gradient(160deg, #130E38 0%, #0D0B28 100%);
-  border-color: rgba(109,86,184,0.4);
+  border-color: rgba(109,86,184,0.45);
 }
-/* Pro top glow */
 .price-card.pro::before {
   content: '';
-  position: absolute; top: 0; left: 0; right: 0; height: 180px;
-  background: radial-gradient(ellipse at 50% 0%, rgba(109,86,184,0.32) 0%, transparent 70%);
+  position: absolute; top: 0; left: 0; right: 0; height: 160px;
+  background: radial-gradient(ellipse at 50% 0%, rgba(109,86,184,0.38) 0%, transparent 70%);
   pointer-events: none;
 }
-.price-card.enterprise { background: linear-gradient(160deg, #0A0D28 0%, #080618 100%); }
 
 .popular-badge {
   position: absolute; top: 20px; right: 20px;
@@ -61,8 +81,7 @@
 
 .plan-name {
   font-family: 'Satoshi', sans-serif;
-  font-size: 15px; font-weight: 600;
-  color: rgba(255,255,255,0.65);
+  font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.65);
   margin-bottom: 14px; letter-spacing: -0.01em;
   position: relative; z-index: 1;
 }
@@ -74,31 +93,26 @@
 
 .plan-price {
   font-family: 'Satoshi', sans-serif;
-  font-size: 48px; font-weight: 700;
-  letter-spacing: -0.04em; color: #fff; line-height: 1;
+  font-size: 48px; font-weight: 700; letter-spacing: -0.04em; color: #fff; line-height: 1;
 }
 
 .plan-period {
   font-family: 'Satoshi', sans-serif;
-  font-size: 15px; font-weight: 400;
-  color: rgba(255,255,255,0.38); letter-spacing: -0.01em;
+  font-size: 15px; font-weight: 400; color: #BEBEBE; letter-spacing: -0.01em;
 }
 
 .plan-desc {
   font-family: 'Satoshi', sans-serif;
-  font-size: 13px; font-weight: 400;
-  color: rgba(255,255,255,0.45); line-height: 1.6;
+  font-size: 13px; font-weight: 400; color: #BEBEBE; line-height: 1.6;
   margin: 12px 0 20px; padding-bottom: 20px;
   border-bottom: 1px solid rgba(255,255,255,0.07);
   position: relative; z-index: 1; letter-spacing: -0.005em;
 }
 
-/* Figma button: Radius 10px, padding top/bottom 12px left/right 16px, gap 10px */
 .price-card .btn-white,
 .price-card .btn-outline {
   margin-bottom: 20px; position: relative; z-index: 1;
-  border-radius: 10px;
-  padding: 12px 16px;
+  border-radius: 10px; padding: 12px 16px;
 }
 
 .plan-features { list-style: none; display: flex; flex-direction: column; gap: 12px; position: relative; z-index: 1; }

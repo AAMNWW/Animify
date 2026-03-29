@@ -8,30 +8,45 @@
   padding: 14px 24px;
 }
 
+/* Figma: radial glow behind navbar — #0059FF 37% opacity, centered */
+.navbar::before {
+  content: '';
+  position: absolute;
+  top: -60px; left: 50%; transform: translateX(-50%);
+  width: 900px; height: 300px;
+  background: radial-gradient(ellipse at 50% 30%, rgba(0,89,255,0.28) 0%, rgba(1,1,1,0.18) 45%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Figma: 688×63, border 0.8px #FFFFFF 12%, radius 200px, padding top/bottom 14px left/right 32px, gap 40px, bg linear #171D2D → #040B1D */
 .navbar-inner {
+  position: relative; z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   max-width: 860px;
-  background: rgba(6, 4, 20, 0.82);
+  background: linear-gradient(160deg, #171D2D 0%, #040B1D 100%);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-radius: 100px;
-  border: 0.6px solid rgba(224, 242, 255, 0.4);
-  padding: 8px 8px 8px 18px;
+  border-radius: 200px;
+  border: 0.8px solid rgba(255, 255, 255, 0.12);
+  padding: 14px 14px 14px 32px;
+  gap: 40px;
 }
 
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: 9px;
+  gap: 10px;
   text-decoration: none;
+  flex-shrink: 0;
 }
 
 .nav-logo-text {
   font-family: 'Satoshi', sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
   color: #fff;
   letter-spacing: -0.02em;
@@ -42,42 +57,46 @@
   align-items: center;
   gap: 32px;
   list-style: none;
+  flex: 1;
+  justify-content: center;
 }
 
+/* Figma: nav links white, same as figma */
 .nav-links a {
   font-family: 'Satoshi', sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
-  color: rgba(255,255,255,0.65);
+  color: rgba(255,255,255,0.75);
   text-decoration: none;
   letter-spacing: -0.01em;
   transition: color 0.2s;
 }
 .nav-links a:hover { color: #fff; }
 
-/* Figma: bg #03263D, border 0.6px #E0F2FF 40%, inner shadow blur:8 #0099FF */
+/* Figma: Try it now — #03263D bg, linear gradient #00AEFF→#1778FF, 0.6px border, inner shadow blur:8 #0099FF */
 .nav-cta {
-  padding: 8px 20px;
-  background: #03263D;
+  padding: 10px 22px;
+  background: linear-gradient(135deg, rgba(0,174,255,0.15) 0%, rgba(23,120,255,0.15) 100%), #03263D;
   color: #fff;
   font-family: 'Satoshi', sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
   border-radius: 100px;
   text-decoration: none;
   letter-spacing: -0.01em;
-  border: 0.6px solid rgba(224, 242, 255, 0.4);
-  box-shadow: inset 0 0 8px 0 rgba(0, 153, 255, 0.55),
-              0 0 12px 0 rgba(0, 153, 255, 0.18);
+  border: 0.8px solid rgba(0,174,255,0.55);
+  box-shadow: inset 0 0 10px 0 rgba(0,153,255,0.5),
+              0 0 14px 0 rgba(0,153,255,0.15);
   transition: box-shadow 0.2s;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 .nav-cta:hover {
-  box-shadow: inset 0 0 14px 0 rgba(0, 153, 255, 0.75),
-              0 0 22px 0 rgba(0, 153, 255, 0.32);
+  box-shadow: inset 0 0 16px 0 rgba(0,153,255,0.75),
+              0 0 24px 0 rgba(0,153,255,0.3);
 }
 
 @media (max-width: 768px) {
   .nav-links { display: none; }
-  .navbar-inner { max-width: 100%; }
+  .navbar-inner { max-width: 100%; padding: 12px 12px 12px 20px; }
 }

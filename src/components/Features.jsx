@@ -214,7 +214,7 @@ export default function Features() {
       <div className="features-header reveal">
         <div className="sec-badge">✦ Amazing</div>
         <h2 className="feat-sec-title">
-          Features and <span className="feat-dim">benefits</span>
+          Features and <span className="feat-dim-grad">benefits</span>
         </h2>
         <p className="feat-sec-sub">
           Create, customize, and collaborate effortlessly with our intuitive platform.<br />

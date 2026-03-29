@@ -9,15 +9,13 @@
   position: relative; overflow: hidden;
 }
 
-/* Figma: radial purple glow top-center */
 .cta-glow {
   position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-  width: 700px; height: 280px;
-  background: radial-gradient(ellipse at top, rgba(90,50,200,0.28) 0%, transparent 65%);
+  width: 500px; height: 260px;
+  background: radial-gradient(ellipse at top, rgba(80,40,220,0.3) 0%, transparent 65%);
   pointer-events: none;
 }
 
-/* Figma: subtle grid lines */
 .cta-grid {
   position: absolute; inset: 0;
   background-image:
@@ -37,10 +35,9 @@
 .cta-sub {
   font-family: 'Satoshi', sans-serif;
   font-size: 15px; font-weight: 400;
-  color: rgba(255,255,255,0.48);
+  color: #BEBEBE;
   max-width: 360px; margin: 0 auto 32px;
   line-height: 1.7; position: relative; z-index: 1;
-  letter-spacing: -0.01em;
 }
 
 .cta-btns {
@@ -48,20 +45,20 @@
   gap: 12px; position: relative; z-index: 1;
 }
 
-/* Figma: #03263D bg, 0.6px border #E0F2FF 40%, inner shadow blur:10 #0099FF, padding 12px 20px bottom:12px left:20px gap:10px */
+/* Figma: same as navbar Try it now — #03263D, border 0.6px, inner shadow blue, Manrope, radius 14px */
 .cta-btn-primary {
-  padding: 12px 20px;
+  padding: 13px 28px;
   background: #03263D;
   color: #fff;
-  font-family: 'Satoshi', sans-serif;
-  font-size: 14px; font-weight: 600;
-  border-radius: 100px;
+  font-family: 'Manrope', 'Satoshi', sans-serif;
+  font-size: 16px; font-weight: 600;
+  border-radius: 14px;
   text-decoration: none;
   border: 0.6px solid rgba(224, 242, 255, 0.4);
   box-shadow: inset 0 0 10px 0 rgba(0, 153, 255, 0.6),
               0 0 18px 0 rgba(0, 153, 255, 0.22);
   transition: box-shadow 0.2s;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
 }
 .cta-btn-primary:hover {
   box-shadow: inset 0 0 16px 0 rgba(0, 153, 255, 0.8),
@@ -69,18 +66,18 @@
 }
 
 .cta-btn-secondary {
-  padding: 12px 20px;
-  background: rgba(255,255,255,0.06);
-  color: rgba(255,255,255,0.8);
-  font-family: 'Satoshi', sans-serif;
-  font-size: 14px; font-weight: 500;
-  border-radius: 100px;
+  padding: 13px 28px;
+  background: rgba(255,255,255,0.07);
+  color: rgba(255,255,255,0.85);
+  font-family: 'Manrope', 'Satoshi', sans-serif;
+  font-size: 16px; font-weight: 500;
+  border-radius: 14px;
   text-decoration: none;
-  border: 0.6px solid rgba(224, 242, 255, 0.25);
+  border: 0.6px solid rgba(255,255,255,0.2);
   transition: background 0.2s, border-color 0.2s;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
 }
-.cta-btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: rgba(224,242,255,0.45); }
+.cta-btn-secondary:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.35); }
 
 @media (max-width: 600px) {
   .cta-box { padding: 52px 24px; }

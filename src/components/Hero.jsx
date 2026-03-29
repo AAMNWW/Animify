@@ -153,7 +153,7 @@ export default function Hero() {
       <div className="hero-content reveal">
         <h1 className="hero-title">
           Transform Concepts into,<br />
-          <span className="hero-title-blue">Dynamic</span>{' '}Animations
+          <span className="hero-title-gradient">Dynamic</span>{' '}Animations
         </h1>
         <p className="hero-sub">
           Unleash your creativity with our intuitive animation tool. Create stunning

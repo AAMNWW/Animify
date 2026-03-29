@@ -2,11 +2,20 @@ import React from 'react'
 import './Navbar.css'
 
 const Logo = () => (
-  <svg width="38" height="22" viewBox="0 0 38 22" fill="none">
-    <path d="M5.5 11C5.5 7.962 7.962 5.5 11 5.5C14.038 5.5 16.5 7.962 16.5 11C16.5 14.038 14.038 16.5 11 16.5C7.962 16.5 5.5 14.038 5.5 11Z" stroke="white" strokeWidth="2" fill="none"/>
-    <path d="M16.5 11C16.5 7.962 18.962 5.5 22 5.5C25.038 5.5 27.5 7.962 27.5 11" stroke="white" strokeWidth="2" fill="none" strokeLinecap="round"/>
-    <path d="M27.5 11C27.5 14.038 29.962 16.5 33 16.5" stroke="white" strokeWidth="2" fill="none" strokeLinecap="round"/>
-    <circle cx="11" cy="11" r="3" fill="white"/>
+  <svg width="46" height="28" viewBox="0 0 46 28" fill="none">
+    <path d="M7 14C7 10.134 10.134 7 14 7C17.866 7 21 10.134 21 14C21 17.866 17.866 21 14 21C10.134 21 7 17.866 7 14Z"
+      stroke="url(#logoGrad)" strokeWidth="2.2" fill="none"/>
+    <path d="M21 14C21 10.134 24.134 7 28 7C31.866 7 35 10.134 35 14"
+      stroke="url(#logoGrad)" strokeWidth="2.2" fill="none" strokeLinecap="round"/>
+    <path d="M35 14C35 17.866 38.134 21 42 21"
+      stroke="url(#logoGrad)" strokeWidth="2.2" fill="none" strokeLinecap="round"/>
+    <circle cx="14" cy="14" r="3.5" fill="url(#logoGrad)"/>
+    <defs>
+      <linearGradient id="logoGrad" x1="7" y1="14" x2="42" y2="14" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stopColor="#00AEFF"/>
+        <stop offset="100%" stopColor="#1778FF"/>
+      </linearGradient>
+    </defs>
   </svg>
 )
 

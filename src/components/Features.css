@@ -24,13 +24,13 @@
   color: #ffffff;
   margin-bottom: 14px;
 }
-.feat-dim { color: rgba(255,255,255,0.4); }
+.feat-dim { background: linear-gradient(90deg, #ffffff 0%, #BEBEBE 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 
 .feat-sec-sub {
   font-family: 'Satoshi', sans-serif;
   font-size: 15px;
   font-weight: 400;
-  color: rgba(255,255,255,0.5);
+  color: #BEBEBE;
   line-height: 1.7;
   letter-spacing: -0.01em;
 }
@@ -99,7 +99,7 @@
   font-family: 'Satoshi', sans-serif;
   font-size: 14px;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.52);
+  color: #BEBEBE;
   line-height: 1.65;
   margin-bottom: 12px;
   letter-spacing: -0.01em;
@@ -406,3 +406,14 @@
   .features-row { gap: 12px; }
   .row-top, .row-bottom { width: 92%; }
 }
+
+/* "benefits" — radial gradient white center to #BEBEBE edge, not flat gray */
+.feat-dim-grad {
+  background: radial-gradient(ellipse at center, #ffffff 0%, #BEBEBE 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Fix sec-sub in features header */
+.features-header .feat-sec-sub { color: #BEBEBE; }
