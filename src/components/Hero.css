@@ -1,3 +1,6 @@
+/* ══════════════════════════════════════════════
+   HERO
+══════════════════════════════════════════════ */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -12,58 +15,74 @@
   overflow: hidden;
 }
 
-/* Figma: Ellipse 8 — radial #0059FF 37% + #010101 32%, centered, 909×472, opacity 90%, top -263px */
+/* Blue radial glow behind headline */
 .hero::before {
   content: '';
   position: absolute;
   top: -80px; left: 50%; transform: translateX(-50%);
   width: 909px; height: 472px;
   background: radial-gradient(ellipse at center,
-    rgba(0,89,255,0.37) 0%,
-    rgba(1,1,1,0.32) 55%,
-    transparent 75%);
+    rgba(0,89,255,0.37) 0%, rgba(1,1,1,0.32) 55%, transparent 75%);
   opacity: 0.9;
   pointer-events: none;
   z-index: 0;
 }
 
-.hero-content {
-  position: relative; z-index: 1; width: 100%;
+.hero-content { position: relative; z-index: 1; width: 100%; }
+
+/* ── Title
+   Figma: Satoshi 500, 64px, line-height 111%, letter-spacing -3.2% */
+.hero-title {
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 500;
+  font-size: 64px;
+  line-height: 1.11;
+  letter-spacing: -0.032em;
+  text-align: center;
+  margin: 0 0 20px;
+  /* IMPORTANT: do not set color here — child spans handle fill */
 }
 
-/* Figma: Manrope 600 SemiBold — but we use Satoshi to match prior setup
-   Actually Figma shows Manrope — add to head and use it */
-.hero-title {
-  font-family: 'Manrope', 'Satoshi', sans-serif;
-  font-size: 72px;
-  font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: -0.03em;
-  color: #ffffff;
-  margin-bottom: 20px;
+/* Shimmer gradient for "Transform Concepts into," and " Animations"
+   Figma: #989CA5 0% → #FFFFFF 30.4% → #FFFFFF 62.9% → #989CA5 100% */
+.title-shimmer {
+  background: linear-gradient(90deg,
+    #989CA5 0%,
+    #FFFFFF 30.4%,
+    #FFFFFF 62.9%,
+    #989CA5 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* "Dynamic" blue gradient
+   Figma: linear-gradient(95.52deg, #00AEFF 2.2%, #1778FF 96%) */
+.title-dynamic {
+  background: linear-gradient(95.52deg, #00AEFF 2.2%, #1778FF 96%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* ── Subtitle
+   Figma: Satoshi 500, 18px, line-height 100%, letter-spacing -1.4%, #BEBEBE */
+.hero-sub {
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1;
+  letter-spacing: -0.014em;
+  color: #BEBEBE;
+  max-width: 574px;
+  margin: 0 auto 36px;
   text-align: center;
 }
 
-/* Dynamic word: linear gradient #00AEFF → #1778FF */
-.hero-title-blue {
-  background: linear-gradient(90deg, #00AEFF 0%, #1778FF 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Figma: #BEBEBE color for sub text */
-.hero-sub {
-  font-family: 'Satoshi', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  color: #BEBEBE;
-  max-width: 520px;
-  margin: 0 auto 36px;
-  line-height: 1.7;
-  letter-spacing: -0.01em;
-}
-
+/* ── CTAs */
 .hero-ctas {
   display: flex;
   align-items: center;
@@ -72,51 +91,68 @@
   margin-bottom: 56px;
 }
 
-/* "Try it now" — Figma: Manrope 600 16px, #03263D bg, linear gradient #00AEFF→#1778FF border, inner shadow #0099FF, border-radius NOT fully rounded — check figma it's less rounded */
+/* Try it now
+   Figma: 113×46, radius 12px, pad 12px 20px, bg #03263D,
+   border 0.6px #E0F2FF66, inset 0 0 10px #0099FF
+   Text: Manrope 600, 16px */
 .btn-primary {
-  display: inline-flex; align-items: center; justify-content: center;
-  padding: 14px 28px;
-  background: linear-gradient(135deg, rgba(0,174,255,0.18) 0%, rgba(23,120,255,0.18) 100%), #03263D;
-  color: #fff;
-  font-family: 'Manrope', 'Satoshi', sans-serif;
-  font-size: 16px; font-weight: 600;
-  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 113px;
+  height: 46px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  background: #03263D;
+  color: #FFFFFF;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1;
   text-decoration: none;
-  border: 0.8px solid rgba(0,174,255,0.6);
-  box-shadow: inset 0 0 10px 0 rgba(0,153,255,0.55),
-              0 0 16px 0 rgba(0,153,255,0.2);
-  transition: box-shadow 0.2s;
-  letter-spacing: 0;
+  white-space: nowrap;
+  border-radius: 12px;
+  border: 0.6px solid rgba(224,242,255,0.4);
+  box-shadow: 0px 0px 10px 0px #0099FF inset;
+  transition: box-shadow 0.2s, background 0.2s;
   cursor: pointer;
 }
 .btn-primary:hover {
-  box-shadow: inset 0 0 16px 0 rgba(0,153,255,0.8),
-              0 0 28px 0 rgba(0,153,255,0.35);
+  background: #04304d;
+  box-shadow: 0px 0px 18px 0px #0099FF inset, 0px 0px 20px 0px rgba(0,153,255,0.25);
 }
 
-/* "Book your demo" — dark, same border-radius as Try it now */
+/* Book your demo */
 .btn-secondary {
-  display: inline-flex; align-items: center; justify-content: center;
-  padding: 14px 28px;
-  background: rgba(255,255,255,0.07);
-  color: rgba(255,255,255,0.82);
-  font-family: 'Manrope', 'Satoshi', sans-serif;
-  font-size: 16px; font-weight: 500;
-  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 46px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.8);
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
   text-decoration: none;
+  white-space: nowrap;
+  border-radius: 12px;
   border: 0.8px solid rgba(255,255,255,0.18);
   transition: background 0.2s, border-color 0.2s;
-  letter-spacing: 0;
   cursor: pointer;
 }
 .btn-secondary:hover {
-  background: rgba(255,255,255,0.12);
-  border-color: rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.11);
+  border-color: rgba(255,255,255,0.32);
 }
 
-/* Mockup wrapper + glow underneath */
+/* ── Mockup wrapper */
 .hero-mockup-wrap {
-  width: 100%; max-width: 900px; margin: 0 auto;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
   animation: floatMockup 6s ease-in-out infinite;
   position: relative;
 }
@@ -126,18 +162,18 @@
   bottom: -30px; left: 50%; transform: translateX(-50%);
   width: 65%; height: 60px;
   background: radial-gradient(ellipse at center,
-    rgba(90,50,220,0.5) 0%,
-    rgba(0,120,255,0.2) 45%,
-    transparent 72%);
+    rgba(90,50,220,0.5) 0%, rgba(0,120,255,0.2) 45%, transparent 72%);
   filter: blur(6px);
   pointer-events: none;
 }
-
 @keyframes floatMockup {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  50%       { transform: translateY(-10px); }
 }
 
+/* ══════════════════════════════════════════════
+   MOCKUP
+══════════════════════════════════════════════ */
 .mockup {
   background: #0A0A18;
   border-radius: 12px;
@@ -145,7 +181,6 @@
   overflow: hidden;
   box-shadow: 0 40px 100px rgba(0,0,0,0.9), 0 0 0 1px rgba(255,255,255,0.04);
 }
-
 .mockup-topbar {
   display: flex; align-items: center; gap: 8px;
   padding: 9px 14px;
@@ -153,46 +188,33 @@
   border-bottom: 1px solid rgba(255,255,255,0.07);
 }
 .mockup-dots { display: flex; gap: 5px; }
-.dot { width: 10px; height: 10px; border-radius: 50%; display: block; flex-shrink: 0; }
+.dot { width: 10px; height: 10px; border-radius: 50%; display: block; }
 .dot.red    { background: #FF5F57; }
 .dot.yellow { background: #FFBD2E; }
 .dot.green  { background: #28CA41; }
 
-.mockup-body {
-  display: grid;
-  grid-template-columns: 168px 1fr 200px;
-  height: 440px;
-}
+.mockup-body { display: grid; grid-template-columns: 168px 1fr 200px; height: 440px; }
 
 .mockup-sidebar {
-  background: #0A0A1E;
-  border-right: 1px solid rgba(255,255,255,0.07);
-  padding: 10px 8px;
-  display: flex; flex-direction: column; gap: 2px; overflow: hidden;
+  background: #0A0A1E; border-right: 1px solid rgba(255,255,255,0.07);
+  padding: 10px 8px; display: flex; flex-direction: column; gap: 2px; overflow: hidden;
 }
 .sidebar-tabs { display: flex; gap: 10px; margin-bottom: 8px; padding: 0 4px; }
-.s-tab {
-  font-family: 'Satoshi', sans-serif; font-size: 11px; font-weight: 500;
-  color: rgba(255,255,255,0.35); cursor: pointer; padding-bottom: 2px;
-}
+.s-tab { font-family: 'Satoshi',sans-serif; font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.35); cursor: pointer; padding-bottom: 2px; }
 .s-tab.active { color: #4A9EFF; border-bottom: 1px solid #4A9EFF; }
-
 .layer-item {
-  display: flex; align-items: center; gap: 6px; padding: 5px 8px;
-  border-radius: 5px; font-family: 'Satoshi', sans-serif; font-size: 11px;
-  color: rgba(255,255,255,0.45); cursor: pointer;
+  display: flex; align-items: center; gap: 6px; padding: 5px 8px; border-radius: 5px;
+  font-family: 'Satoshi',sans-serif; font-size: 11px; color: rgba(255,255,255,0.45); cursor: pointer;
   transition: background .15s, color .15s;
 }
-.layer-item:hover  { background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.7); }
-.layer-item.sel    { background: rgba(74,158,255,0.12); color: #4A9EFF; }
-.li-icon { flex-shrink: 0; }
+.layer-item:hover { background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.7); }
+.layer-item.sel   { background: rgba(74,158,255,0.12); color: #4A9EFF; }
 .li-arrow { margin-left: auto; font-size: 10px; opacity: .5; }
 
 .mockup-canvas {
   background: #08071A; position: relative;
   display: flex; align-items: center; justify-content: center; overflow: hidden;
 }
-
 .sphere-outer { position: relative; width: 220px; height: 220px; flex-shrink: 0; }
 .sphere-core {
   position: absolute; inset: 0; border-radius: 50%;
@@ -211,9 +233,9 @@
   background: rgba(6,5,20,0.92); border-top: 1px solid rgba(255,255,255,0.07);
 }
 .tl-ruler { display: flex; align-items: center; justify-content: space-between; padding: 4px 14px; border-bottom: 1px solid rgba(255,255,255,0.05); }
-.tl-seg { font-family: 'Satoshi', sans-serif; font-size: 9px; color: rgba(255,255,255,0.28); }
+.tl-seg { font-family: 'Satoshi',sans-serif; font-size: 9px; color: rgba(255,255,255,0.28); }
 .tl-playhead { position: absolute; top: 0; left: 36%; display: flex; flex-direction: column; align-items: center; pointer-events: none; z-index: 4; }
-.tl-ph-tag { background: #4A9EFF; color: #fff; font-family: 'Satoshi', sans-serif; font-size: 8px; padding: 1px 5px; border-radius: 3px; white-space: nowrap; }
+.tl-ph-tag { background: #4A9EFF; color: #fff; font-family: 'Satoshi',sans-serif; font-size: 8px; padding: 1px 5px; border-radius: 3px; }
 .tl-ph-line { width: 1px; height: 52px; background: #4A9EFF; }
 .tl-tracks { padding: 4px 14px; display: flex; flex-direction: column; gap: 3px; }
 .tl-track { height: 14px; background: rgba(255,255,255,0.03); border-radius: 3px; position: relative; }
@@ -225,28 +247,29 @@
   padding: 10px 12px; display: flex; flex-direction: column; overflow: hidden;
 }
 .props-tabs { display: flex; gap: 2px; margin-bottom: 10px; }
-.p-tab { padding: 4px 10px; border-radius: 5px; font-family: 'Satoshi', sans-serif; font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.3); cursor: pointer; transition: background .15s, color .15s; }
+.p-tab { padding: 4px 10px; border-radius: 5px; font-family: 'Satoshi',sans-serif; font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.3); cursor: pointer; transition: background .15s, color .15s; }
 .p-tab.active { background: rgba(255,255,255,0.08); color: #fff; }
 .props-align-btns { display: flex; align-items: center; gap: 3px; margin-bottom: 10px; }
 .a-btn { width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; font-size: 11px; border-radius: 4px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); color: rgba(255,255,255,0.3); cursor: pointer; }
 .a-btn.active { background: rgba(74,158,255,0.15); border-color: rgba(74,158,255,0.3); color: #4A9EFF; }
 .a-sep { width: 6px; }
-.props-section { font-family: 'Satoshi', sans-serif; font-size: 10px; font-weight: 600; color: rgba(255,255,255,0.5); margin-bottom: 5px; }
+.props-section { font-family: 'Satoshi',sans-serif; font-size: 10px; font-weight: 600; color: rgba(255,255,255,0.5); margin-bottom: 5px; }
 .p-grid { display: grid; grid-template-columns: 1fr 1fr; margin-bottom: 4px; }
 .p-cell { display: flex; justify-content: space-between; align-items: center; padding: 2.5px 4px; }
-.p-cell label { font-family: 'Satoshi', sans-serif; font-size: 9.5px; color: rgba(255,255,255,0.28); }
-.p-cell span  { font-family: 'Satoshi', sans-serif; font-size: 9.5px; color: rgba(255,255,255,0.55); }
+.p-cell label { font-family: 'Satoshi',sans-serif; font-size: 9.5px; color: rgba(255,255,255,0.28); }
+.p-cell span  { font-family: 'Satoshi',sans-serif; font-size: 9.5px; color: rgba(255,255,255,0.55); }
 .p-div { height: 1px; background: rgba(255,255,255,0.05); margin: 6px 0; }
 .p-opacity-row { display: flex; align-items: center; gap: 6px; margin-bottom: 2px; }
 .p-opacity-track { flex: 1; height: 3px; border-radius: 2px; background: rgba(255,255,255,0.08); position: relative; overflow: hidden; }
 .p-opacity-fill { position: absolute; left: 0; top: 0; bottom: 0; width: 100%; background: linear-gradient(90deg, #4A9EFF, rgba(74,158,255,0.18)); border-radius: 2px; }
 .p-fill-row { display: flex; align-items: center; gap: 6px; margin-bottom: 2px; }
 .p-swatch { width: 14px; height: 14px; border-radius: 3px; border: 1px solid rgba(255,255,255,0.1); flex-shrink: 0; }
-.p-fill-label { font-family: 'Satoshi', sans-serif; font-size: 9.5px; color: rgba(255,255,255,0.5); flex: 1; }
-.p-fill-pct   { font-family: 'Satoshi', sans-serif; font-size: 9.5px; color: rgba(255,255,255,0.35); }
+.p-fill-label { font-family: 'Satoshi',sans-serif; font-size: 9.5px; color: rgba(255,255,255,0.5); flex: 1; }
+.p-fill-pct   { font-family: 'Satoshi',sans-serif; font-size: 9.5px; color: rgba(255,255,255,0.35); }
 .p-collapsible { display: flex; align-items: center; justify-content: space-between; padding: 2px 0; }
 .p-plus { font-size: 14px; color: rgba(255,255,255,0.2); cursor: pointer; line-height: 1; }
 
+/* ── Responsive */
 @media (max-width: 960px) {
   .hero { padding: 120px 28px 60px; }
   .hero-title { font-size: 42px; }
@@ -256,6 +279,6 @@
 }
 @media (max-width: 600px) {
   .hero-title { font-size: 30px; }
-  .hero-ctas { flex-direction: column; align-items: stretch; }
-  .hero-ctas a { text-align: center; }
+  .hero-sub { font-size: 15px; }
+  .hero-ctas { flex-direction: column; align-items: center; }
 }
