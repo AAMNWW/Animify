@@ -2,8 +2,7 @@ import React from 'react'
 import './Hero.css'
 
 /* ─────────────────────────────────────────
-   APP MOCKUP  — mirrors Figma screenshot 2
-   exactly: sidebar | sphere-canvas | props
+   APP MOCKUP  — mirrors Figma screenshot
 ───────────────────────────────────────── */
 const AppMockup = () => (
   <div className="mockup">
@@ -28,49 +27,52 @@ const AppMockup = () => (
         </div>
 
         <div className="layer-item sel">
-          <svg width="9" height="9" viewBox="0 0 9 9" fill="none" className="li-icon"><rect x="0.5" y="0.5" width="8" height="8" rx="1.5" fill="#4A9EFF" fillOpacity=".3" stroke="#4A9EFF" strokeWidth="1"/></svg>
+          <svg width="9" height="9" viewBox="0 0 9 9" fill="none" className="li-icon">
+            <rect x="0.5" y="0.5" width="8" height="8" rx="1.5" fill="#4A9EFF" fillOpacity=".3" stroke="#4A9EFF" strokeWidth="1"/>
+          </svg>
           <span>Scene</span>
           <span className="li-arrow">›</span>
         </div>
         <div className="layer-item">
-          <svg width="9" height="9" viewBox="0 0 9 9" fill="none" className="li-icon"><rect x="0.5" y="0.5" width="8" height="8" rx="1.5" stroke="rgba(255,255,255,0.3)" strokeWidth="1"/></svg>
+          <svg width="9" height="9" viewBox="0 0 9 9" fill="none" className="li-icon">
+            <rect x="0.5" y="0.5" width="8" height="8" rx="1.5" stroke="rgba(255,255,255,0.3)" strokeWidth="1"/>
+          </svg>
           <span>Rectangle</span>
         </div>
         <div className="layer-item">
-          <svg width="9" height="9" viewBox="0 0 9 9" fill="none" className="li-icon"><text x="1" y="8" fontSize="8" fill="rgba(255,255,255,0.35)">T</text></svg>
+          <svg width="9" height="9" viewBox="0 0 9 9" fill="none" className="li-icon">
+            <text x="1" y="8" fontSize="8" fill="rgba(255,255,255,0.35)">T</text>
+          </svg>
           <span>User Interface</span>
         </div>
         <div className="layer-item">
-          <svg width="9" height="9" viewBox="0 0 9 9" fill="none" className="li-icon"><rect x="0.5" y="0.5" width="8" height="8" rx="1" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)" strokeWidth="1"/><line x1="0.5" y1="3.5" x2="8.5" y2="3.5" stroke="rgba(255,255,255,0.15)" strokeWidth="0.5"/></svg>
+          <svg width="9" height="9" viewBox="0 0 9 9" fill="none" className="li-icon">
+            <rect x="0.5" y="0.5" width="8" height="8" rx="1" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)" strokeWidth="1"/>
+            <line x1="0.5" y1="3.5" x2="8.5" y2="3.5" stroke="rgba(255,255,255,0.15)" strokeWidth="0.5"/>
+          </svg>
           <span>Image</span>
         </div>
       </div>
 
       {/* ── CENTRE: Canvas with sphere ── */}
       <div className="mockup-canvas">
-
-        {/* The glowing sphere with spiral wire lines — exact Figma look */}
         <div className="sphere-outer">
           <div className="sphere-core" />
-          {/* SVG rings overlaid on top */}
           <svg className="sphere-rings" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-            {/* horizontal ellipses */}
-            <ellipse cx="110" cy="110" rx="109" ry="22" stroke="rgba(120,200,255,0.2)" strokeWidth="0.8"/>
-            <ellipse cx="110" cy="110" rx="109" ry="42" stroke="rgba(120,200,255,0.17)" strokeWidth="0.8"/>
-            <ellipse cx="110" cy="110" rx="109" ry="62" stroke="rgba(120,200,255,0.13)" strokeWidth="0.8"/>
-            <ellipse cx="110" cy="110" rx="109" ry="80" stroke="rgba(120,200,255,0.10)" strokeWidth="0.8"/>
-            <ellipse cx="110" cy="110" rx="109" ry="96" stroke="rgba(120,200,255,0.07)" strokeWidth="0.8"/>
+            <ellipse cx="110" cy="110" rx="109" ry="22"  stroke="rgba(120,200,255,0.2)"  strokeWidth="0.8"/>
+            <ellipse cx="110" cy="110" rx="109" ry="42"  stroke="rgba(120,200,255,0.17)" strokeWidth="0.8"/>
+            <ellipse cx="110" cy="110" rx="109" ry="62"  stroke="rgba(120,200,255,0.13)" strokeWidth="0.8"/>
+            <ellipse cx="110" cy="110" rx="109" ry="80"  stroke="rgba(120,200,255,0.10)" strokeWidth="0.8"/>
+            <ellipse cx="110" cy="110" rx="109" ry="96"  stroke="rgba(120,200,255,0.07)" strokeWidth="0.8"/>
             <ellipse cx="110" cy="110" rx="109" ry="108" stroke="rgba(120,200,255,0.05)" strokeWidth="0.8"/>
-            {/* vertical ellipses */}
-            <ellipse cx="110" cy="110" rx="22" ry="109" stroke="rgba(120,200,255,0.16)" strokeWidth="0.8"/>
-            <ellipse cx="110" cy="110" rx="50" ry="109" stroke="rgba(120,200,255,0.11)" strokeWidth="0.8"/>
-            <ellipse cx="110" cy="110" rx="80" ry="109" stroke="rgba(120,200,255,0.08)" strokeWidth="0.8"/>
+            <ellipse cx="110" cy="110" rx="22"  ry="109" stroke="rgba(120,200,255,0.16)" strokeWidth="0.8"/>
+            <ellipse cx="110" cy="110" rx="50"  ry="109" stroke="rgba(120,200,255,0.11)" strokeWidth="0.8"/>
+            <ellipse cx="110" cy="110" rx="80"  ry="109" stroke="rgba(120,200,255,0.08)" strokeWidth="0.8"/>
           </svg>
         </div>
 
         {/* ── Timeline at bottom ── */}
         <div className="mockup-timeline">
-          {/* ruler */}
           <div className="tl-ruler">
             <span className="tl-seg">0s</span>
             <span className="tl-seg">1s</span>
@@ -79,20 +81,15 @@ const AppMockup = () => (
             <span className="tl-seg">4s</span>
             <span className="tl-seg">5s</span>
           </div>
-          {/* playhead */}
           <div className="tl-playhead">
             <div className="tl-ph-tag">00:02</div>
             <div className="tl-ph-line" />
           </div>
-          {/* keyframe tracks */}
           <div className="tl-tracks">
-            <div className="tl-track">
-              <div className="tl-block" />
-            </div>
+            <div className="tl-track"><div className="tl-block" /></div>
             <div className="tl-track tl-track-empty" />
           </div>
         </div>
-
       </div>
 
       {/* ── RIGHT: Properties panel ── */}
@@ -149,17 +146,26 @@ export default function Hero() {
   return (
     <section className="hero">
 
+      {/* Figma: Ellipse 17 — large decorative ring framing the section */}
+      <div className="hero-ring" />
 
-      <div className="hero-content reveal">
+      <div className="hero-content">
+
+        {/* Figma: Satoshi 500 64px, gradient #989CA5→#FFF→#FFF→#989CA5 */}
         <h1 className="hero-title">
           Transform Concepts into,<br />
+          {/* "Dynamic" uses its own blue gradient */}
           <span className="hero-title-gradient">Dynamic</span>{' '}Animations
         </h1>
+
+        {/* Figma: Satoshi 500 18px, #BEBEBE, line-height 100%, letter-spacing -1.4% */}
         <p className="hero-sub">
           Unleash your creativity with our intuitive animation tool. Create stunning
           videos and bring your vision to life in just a few clicks!
         </p>
+
         <div className="hero-ctas">
+          {/* Figma: 113×46, radius 12px, Manrope SemiBold 16px, #03263D bg, inset glow */}
           <a href="#" className="btn-primary">Try it now</a>
           <a href="#" className="btn-secondary">Book your demo</a>
         </div>
