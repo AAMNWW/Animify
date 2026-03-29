@@ -212,7 +212,7 @@ export default function Features() {
 
       {/* HEADER */}
       <div className="features-header reveal">
-        <div className="sec-badge">✦ Amazing</div>
+        <div className="sec-badge"> Amazing</div>
         <h2 className="feat-sec-title">
           Features and <span className="feat-dim-grad">benefits</span>
         </h2>
